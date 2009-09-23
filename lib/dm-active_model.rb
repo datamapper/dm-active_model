@@ -55,6 +55,7 @@ module DataMapper
         def errors
           hash = {}
           def hash.full_messages; [] end
+          def hash.[](key); [] end
           hash
         end
 

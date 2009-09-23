@@ -10,8 +10,11 @@ $LOAD_PATH.unshift('lib') unless $LOAD_PATH.include?('lib')
 
 require 'dm-active_model'
 
-require 'shared/amo_compliance_spec'
+# test with official active_model lint
+require 'active_model/lint'
 
+# run our own specs for the time being. lint still needs to be updated
+require 'shared/amo_compliance_spec'
 
 def load_driver(name, default_uri)
   return false if ENV['ADAPTER'] != name.to_s
