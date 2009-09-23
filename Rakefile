@@ -1,48 +1,52 @@
-require 'rubygems'
-require 'rake'
+require 'pathname'
 
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "dm-active_model"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "gamsnjaga@gmail.com"
-    gem.homepage = "http://github.com/snusnu/dm-active_model"
-    gem.authors = ["snusnu"]
-    gem.add_development_dependency "rspec"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
-  end
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
+ROOT    = Pathname(__FILE__).dirname.expand_path
+JRUBY   = RUBY_PLATFORM =~ /java/
+WINDOWS = Gem.win_platform?
+SUDO    = (WINDOWS || JRUBY) ? '' : ('sudo' unless ENV['SUDOLESS'])
+
+require ROOT + 'lib/dm-active_model/version'
+
+AUTHOR = 'Martin Gamsjaeger (snusnu)'
+EMAIL  = 'gamsnjaga [a] gmail [d] com'
+GEM_NAME = 'dm-active_model'
+GEM_VERSION = DataMapper::ActiveModel::VERSION
+GEM_DEPENDENCIES = [['dm-core', '0.10.0']]
+GEM_CLEAN = %w[ log pkg coverage ]
+GEM_EXTRAS = { :has_rdoc => true, :extra_rdoc_files => %w[ README.rdoc LICENSE History.rdoc ] }
+
+PROJECT_NAME = 'dm-active_model'
+PROJECT_URL  = "http://github.com/snusnu/dm-active_model"
+PROJECT_DESCRIPTION = PROJECT_SUMMARY = 'DataMapper plugin that makes datamapper active_model compliant'
+
+[ ROOT, ROOT.parent ].each do |dir|
+  Pathname.glob(dir.join('tasks/**/*.rb').to_s).each { |f| require f }
 end
 
-require 'spec/rake/spectask'
-Spec::Rake::SpecTask.new(:spec) do |spec|
-  spec.libs << 'lib' << 'spec'
-  spec.spec_files = FileList['spec/**/*_spec.rb']
-end
 
-Spec::Rake::SpecTask.new(:rcov) do |spec|
-  spec.libs << 'lib' << 'spec'
-  spec.pattern = 'spec/**/*_spec.rb'
-  spec.rcov = true
-end
+# hoe specific settings
+# this will ease migration to dm-more if that's desired
 
-task :spec => :check_dependencies
+require 'hoe'
 
-task :default => :spec
+# remove the hoe test task
+# (we have our own, with custom spec.opts file reading)
+Hoe.plugins.delete(:test)
 
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
-  if File.exist?('VERSION')
-    version = File.read('VERSION')
-  else
-    version = ""
-  end
+Hoe.spec(GEM_NAME) do
+  developer(AUTHOR, EMAIL)
 
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "dm-active_model #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+  self.version      = GEM_VERSION
+  self.description  = PROJECT_DESCRIPTION
+  self.summary      = PROJECT_SUMMARY
+  self.url          = PROJECT_URL
+  self.readme_file  = 'README.rdoc'
+  self.history_file = 'History.rdoc'
+
+  self.rubyforge_name = PROJECT_NAME if PROJECT_NAME
+
+  clean_globs |= GEM_CLEAN
+  extra_deps  |= GEM_DEPENDENCIES
+
+  self.spec_extras = GEM_EXTRAS if GEM_EXTRAS
 end

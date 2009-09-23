@@ -1,6 +1,6 @@
 = dm-active_model
 
-Description goes here.
+This plugin makes datamapper compliant with active_model conventions and thus compatible with rails3.
 
 == Note on Patches/Pull Requests
  
@@ -15,4 +15,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2009 snusnu. See LICENSE for details.
+Copyright (c) 2009 Martin Gamsjaeger (snusnu). See LICENSE for details.
