@@ -59,22 +59,4 @@ describe 'every active_model compliant object', :shared => true do
     @object.class.model_name.respond_to?(:partial_path).should be_true
   end
 
-  it '#class.model_name.singular should follow active_model conventions' do
-    @object.class.model_name.singular.should == @model_name_singular
-  end
-  it '#class.model_name.plural should follow active_model conventions' do
-    @object.class.model_name.plural.should == @model_name_plural
-  end
-  it '#class.model_name.element should follow active_model conventions' do
-    @object.class.model_name.element.should == @model_name_element
-  end
-  it '#class.model_name.human should follow active_model conventions' do
-    @object.class.model_name.human.should == @model_name_human
-  end
-  it '#class.model_name.collection should follow active_model conventions' do
-    @object.class.model_name.collection.should == @model_name_collection
-  end
-  it '#class.model_name.partial_path should follow active_model conventions' do
-    @object.class.model_name.partial_path.should == @model_name_partial_path
-  end
 end

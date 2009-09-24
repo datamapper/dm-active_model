@@ -14,7 +14,7 @@ require 'dm-active_model'
 require 'active_model/lint'
 
 # run our own specs for the time being. lint still needs to be updated
-require 'shared/amo_compliance_spec'
+require 'amo_compliance_spec'
 
 def load_driver(name, default_uri)
   return false if ENV['ADAPTER'] != name.to_s
