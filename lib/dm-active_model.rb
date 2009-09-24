@@ -53,10 +53,10 @@ module DataMapper
         end
 
         def errors
-          hash = {}
-          def hash.full_messages; [] end
-          def hash.[](key); [] end
-          hash
+          obj = Object.new
+          def obj.[](key)         [] end
+          def obj.full_messages() [] end
+          obj
         end
 
       end
