@@ -11,7 +11,7 @@ AUTHOR = 'Martin Gamsjaeger (snusnu)'
 EMAIL  = 'gamsnjaga [a] gmail [d] com'
 GEM_NAME = 'dm-active_model'
 GEM_VERSION = DataMapper::ActiveModel::VERSION
-GEM_DEPENDENCIES = [['dm-core', '0.10.0']]
+GEM_DEPENDENCIES = [['dm-core', '~>0.10']]
 GEM_CLEAN = %w[ log pkg coverage ]
 GEM_EXTRAS = { :has_rdoc => true, :extra_rdoc_files => %w[ README.rdoc LICENSE History.rdoc ] }
 
