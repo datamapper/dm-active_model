@@ -20,10 +20,12 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
      ".gitignore",
+     "CHANGELOG",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
      "TODO",
+     "dm-active_model.gemspec",
      "lib/dm-active_model.rb",
      "lib/dm-active_model/version.rb",
      "spec/amo_compliance_spec.rb",
