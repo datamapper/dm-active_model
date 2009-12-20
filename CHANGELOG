@@ -1,0 +1,77 @@
+[fb2fe87 | Sun Dec 20 19:59:22 UTC 2009] snusnu <gamsnjaga@gmail.com>
+
+ * Thx to jeweler this is now a gem
+
+[53df775 | Thu Sep 24 03:06:19 UTC 2009] snusnu <gamsnjaga@gmail.com>
+
+ * All lint and rails_compliance specs pass.
+
+[64c47dc | Thu Sep 24 02:53:17 UTC 2009] snusnu <gamsnjaga@gmail.com>
+
+ * Simplified #errors default implementation
+
+[03beebe | Thu Sep 24 02:29:53 UTC 2009] snusnu <gamsnjaga@gmail.com>
+
+ * Only rely on active_model/lint for amo compliance specs
+
+[f45713a | Thu Sep 24 02:29:33 UTC 2009] snusnu <gamsnjaga@gmail.com>
+
+ * Refactored rails_compliance_spec a bit
+
+[755a48c | Thu Sep 24 02:20:57 UTC 2009] snusnu <gamsnjaga@gmail.com>
+
+ * Make it easy to move rails compliance specs to rails_datamapper
+
+    active_model/lint itself isn't really strict about what exact
+    String it gets back from either of the following methods that
+    are supported by the object returned from #class.model_name
+    
+      #singular
+      #plural
+      #element
+      #human
+      #collection
+      #partial_path
+    
+    All lint cares about, is that these methods return Strings
+    
+    Therefore it's probably best to push specs that test for
+    rails's own implementation of those active_model strings
+    down to something like rails_datamapper.
+    
+    Currently the rails compliance specs for #collection and
+    #partial_path fail. Need to investigate this.
+
+[31d28fd | Thu Sep 24 00:23:40 UTC 2009] snusnu <gamsnjaga@gmail.com>
+
+ * All specs pass, changed dm-core dependency to '~>0.10'
+
+[5cb1320 | Wed Sep 23 23:27:42 UTC 2009] snusnu <gamsnjaga@gmail.com>
+
+ * Also run active_model/lint when running the specsuite
+
+    Currently, if dm-validations are not required, all specs
+    pass. If dm-validations are required, 1 spec fails because
+    DataMapper::Validate::ValidationErrors seems to implement
+    #[](field) in an incompatible way. This will need more
+    investigation.
+    
+    If this can be fixed upstream, all specs should pass
+
+[4b1ccd0 | Wed Sep 23 22:37:59 UTC 2009] snusnu <gamsnjaga@gmail.com>
+
+ * Added implementation and initial specs
+
+    The final goal is to rely solely on active_model/lint.rb
+    to perform the compliance tests. However, lint.rb still
+    needs to be updated to cover the intended behavior more
+    precisely.
+    
+    Nevertheless, next step is to include active_model as a
+    development dependency and run both lint.rb and our own
+    specs for the time being.
+
+[2eb914c | Wed Sep 23 18:23:27 UTC 2009] snusnu <gamsnjaga@gmail.com>
+
+ * Initial commit to dm-active_model.
+

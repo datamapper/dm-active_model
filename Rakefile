@@ -1,52 +1,35 @@
-require 'pathname'
+require 'rubygems'
+require 'rake'
 
-ROOT    = Pathname(__FILE__).dirname.expand_path
-JRUBY   = RUBY_PLATFORM =~ /java/
-WINDOWS = Gem.win_platform?
-SUDO    = (WINDOWS || JRUBY) ? '' : ('sudo' unless ENV['SUDOLESS'])
+require File.expand_path('../lib/dm-active_model/version', __FILE__)
 
-require ROOT + 'lib/dm-active_model/version'
+FileList['tasks/**/*.rake'].each { |task| load task }
 
-AUTHOR = 'Martin Gamsjaeger (snusnu)'
-EMAIL  = 'gamsnjaga [a] gmail [d] com'
-GEM_NAME = 'dm-active_model'
-GEM_VERSION = DataMapper::ActiveModel::VERSION
-GEM_DEPENDENCIES = [['dm-core', '~>0.10']]
-GEM_CLEAN = %w[ log pkg coverage ]
-GEM_EXTRAS = { :has_rdoc => true, :extra_rdoc_files => %w[ README.rdoc LICENSE History.rdoc ] }
+begin
 
-PROJECT_NAME = 'dm-active_model'
-PROJECT_URL  = "http://github.com/snusnu/dm-active_model"
-PROJECT_DESCRIPTION = PROJECT_SUMMARY = 'DataMapper plugin that makes datamapper active_model compliant'
+  gem 'jeweler', '~> 1.4'
+  require 'jeweler'
 
-[ ROOT, ROOT.parent ].each do |dir|
-  Pathname.glob(dir.join('tasks/**/*.rb').to_s).each { |f| require f }
-end
+  Jeweler::Tasks.new do |gem|
 
+    gem.version     = DataMapper::ActiveModel::VERSION
 
-# hoe specific settings
-# this will ease migration to dm-more if that's desired
+    gem.name        = 'dm-active_model'
+    gem.summary     = 'active_model compliance for datamapper'
+    gem.description = 'A datamapper plugin for active_model compliance and thus rails 3 compatibility.'
+    gem.email       = 'gamsnjaga [a] gmail [d] com'
+    gem.homepage    = 'http://github.com/snusnu/dm-active_model'
+    gem.authors     = [ 'Martin Gamsjaeger (snusnu)' ]
 
-require 'hoe'
+    gem.add_dependency 'dm-core', '~> 0.10'
 
-# remove the hoe test task
-# (we have our own, with custom spec.opts file reading)
-Hoe.plugins.delete(:test)
+    gem.add_development_dependency 'rspec', '~> 1.2.9'
+    gem.add_development_dependency 'yard',  '~> 0.4.0'
 
-Hoe.spec(GEM_NAME) do
-  developer(AUTHOR, EMAIL)
+  end
 
-  self.version      = GEM_VERSION
-  self.description  = PROJECT_DESCRIPTION
-  self.summary      = PROJECT_SUMMARY
-  self.url          = PROJECT_URL
-  self.readme_file  = 'README.rdoc'
-  self.history_file = 'History.rdoc'
+  Jeweler::GemcutterTasks.new
 
-  self.rubyforge_name = PROJECT_NAME if PROJECT_NAME
-
-  clean_globs |= GEM_CLEAN
-  extra_deps  |= GEM_DEPENDENCIES
-
-  self.spec_extras = GEM_EXTRAS if GEM_EXTRAS
+rescue LoadError
+  puts 'Jeweler (or a dependency) not available. Install it with: gem install jeweler'
 end
