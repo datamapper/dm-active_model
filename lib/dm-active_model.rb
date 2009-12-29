@@ -13,7 +13,7 @@ module DataMapper
         @singular     = Extlib::Inflection.underscore(self).tr('/', '_').freeze
         @plural       = Extlib::Inflection.pluralize(@singular).freeze
         @element      = Extlib::Inflection.underscore(Extlib::Inflection.demodulize(self)).freeze
-        @human        = @element.gsub(/_/, " ")
+        @human        = Extlib::Inflection.humanize(@element)
         @collection   = Extlib::Inflection.pluralize(Extlib::Inflection.underscore(self)).freeze
         @partial_path = "#{@collection}/#{@element}".freeze
       end
