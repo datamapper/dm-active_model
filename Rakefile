@@ -3,8 +3,6 @@ require 'rake'
 
 require File.expand_path('../lib/dm-active_model/version', __FILE__)
 
-FileList['tasks/**/*.rake'].each { |task| load task }
-
 begin
 
   gem 'jeweler', '~> 1.4'
@@ -30,6 +28,7 @@ begin
 
   Jeweler::GemcutterTasks.new
 
+  FileList['tasks/**/*.rake'].each { |task| import task }
 rescue LoadError
   puts 'Jeweler (or a dependency) not available. Install it with: gem install jeweler'
 end
