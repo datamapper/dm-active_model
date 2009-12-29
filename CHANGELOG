@@ -25,20 +25,20 @@
     active_model/lint itself isn't really strict about what exact
     String it gets back from either of the following methods that
     are supported by the object returned from #class.model_name
-    
+
       #singular
       #plural
       #element
       #human
       #collection
       #partial_path
-    
+
     All lint cares about, is that these methods return Strings
-    
+
     Therefore it's probably best to push specs that test for
     rails's own implementation of those active_model strings
     down to something like rails_datamapper.
-    
+
     Currently the rails compliance specs for #collection and
     #partial_path fail. Need to investigate this.
 
@@ -55,7 +55,7 @@
     DataMapper::Validate::ValidationErrors seems to implement
     #[](field) in an incompatible way. This will need more
     investigation.
-    
+
     If this can be fixed upstream, all specs should pass
 
 [4b1ccd0 | Wed Sep 23 22:37:59 UTC 2009] snusnu <gamsnjaga@gmail.com>
@@ -66,7 +66,7 @@
     to perform the compliance tests. However, lint.rb still
     needs to be updated to cover the intended behavior more
     precisely.
-    
+
     Nevertheless, next step is to include active_model as a
     development dependency and run both lint.rb and our own
     specs for the time being.
@@ -74,4 +74,3 @@
 [2eb914c | Wed Sep 23 18:23:27 UTC 2009] snusnu <gamsnjaga@gmail.com>
 
  * Initial commit to dm-active_model.
-
