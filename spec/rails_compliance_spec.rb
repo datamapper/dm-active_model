@@ -18,10 +18,10 @@ describe 'An active_model compliant DataMapper::Resource that is compatible with
   end
 
   before :each do
-    @object = ComplianceTest::ProfileInfo.create.to_model
+    @model = ComplianceTest::ProfileInfo.create.to_model
   end
 
-  it_should_behave_like 'every active_model compliant object'
+  it_should_behave_like 'an active_model compliant object'
 
   it '#class.model_name.singular should follow active_model conventions' do
     @object.class.model_name.singular.should == ActiveModel::Name.new(@object.class.name).singular
