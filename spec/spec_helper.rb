@@ -1,19 +1,16 @@
 require 'rubygems'
 
 # Use local dm-core if running from a typical dev checkout.
-lib = File.join('..', '..', 'dm-core', 'lib')
+lib = File.expand_path('../../../dm-core/lib', __FILE__)
 $LOAD_PATH.unshift(lib) if File.directory?(lib)
 require 'dm-core'
 
-# Support running specs with 'rake spec' and 'spec'
-$LOAD_PATH.unshift('lib') unless $LOAD_PATH.include?('lib')
-
-require 'dm-active_model'
-
-# test with official active_model lint
+# Use local active_model if running from a typical dev checkout.
+lib = File.expand_path('../../../rails/activemodel/lib', __FILE__)
+$LOAD_PATH.unshift(lib) if File.directory?(lib)
 require 'active_model/lint'
 
-# run our own specs for the time being. lint still needs to be updated
+require 'dm-active_model'
 require 'amo_compliance_spec'
 
 def load_driver(name, default_uri)
