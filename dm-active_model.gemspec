@@ -27,7 +27,6 @@ Gem::Specification.new do |s|
      "TODO",
      "dm-active_model.gemspec",
      "lib/dm-active_model.rb",
-     "lib/dm-active_model/extlib.rb",
      "lib/dm-active_model/version.rb",
      "spec/amo_compliance_spec.rb",
      "spec/dm-active_model_spec.rb",

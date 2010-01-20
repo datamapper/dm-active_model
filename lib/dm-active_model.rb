@@ -1,8 +1,4 @@
-if Object.const_defined?('Extlib')
-  require 'dm-active_model/extlib'
-else
-  require 'active_model/naming'
-end
+require 'active_model/naming'
 
 module DataMapper
   module ActiveModel
@@ -18,7 +14,6 @@ module DataMapper
     end
 
     module InstanceMethods
-
 
       def self.included(host)
         host.class_eval do
