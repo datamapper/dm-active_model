@@ -17,7 +17,7 @@ describe 'An active_model compliant DataMapper::Resource' do
   end
 
   before :each do
-    @model = ComplianceTest::ProfileInfo.create.to_model
+    @model = ComplianceTest::ProfileInfo.new.to_model
   end
 
   it_should_behave_like 'an active_model compliant object'

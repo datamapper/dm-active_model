@@ -15,14 +15,25 @@ module DataMapper
 
     module InstanceMethods
 
-      def self.included(host)
-        host.class_eval do
-          alias :new_record? :new?
-        end
-      end
-
       def to_model
         self
+      end
+
+      def persisted?
+        saved?
+      end
+
+      def to_key
+        key
+      end
+
+      def to_param
+        return nil if key.nil?
+        if key.length > 1
+          raise "You need to implement #to_param yourself to support this key: #{self.class.key.inspect}"
+        else
+          self.key.first.to_s
+        end
       end
 
       # Define the minimum requirements if the resource

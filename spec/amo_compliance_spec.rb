@@ -11,16 +11,20 @@ share_examples_for 'an active_model compliant object' do
 
   include ActiveModel::Lint::Tests
 
+  it 'must implement the #to_key interface' do
+    test_to_key
+  end
+
+  it 'must implement the #to_param interface' do
+    test_to_param
+  end
+
   it 'must implement the #valid? interface' do
     test_valid?
   end
 
-  it 'must implement the #new_record? interface' do
-    test_new_record?
-  end
-
-  it 'must implement the #destroyed? interface' do
-    test_destroyed?
+  it 'must implement the #persisted? interface' do
+    test_persisted?
   end
 
   it 'must implement the #model_naming interface' do
