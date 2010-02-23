@@ -1,4 +1,15 @@
-require 'rubygems'
+begin
+  # Just in case the bundle was locked
+  # This shouldn't happen in a dev environment but lets be safe
+  require File.expand_path('../../.bundle/environment', __FILE__)
+rescue LoadError
+  require 'rubygems'
+  require 'bundler'
+  Bundler.setup
+end
+
+Bundler.require(:default, :development, :test)
+
 require 'rake'
 
 require File.expand_path('../lib/dm-active_model/version', __FILE__)
