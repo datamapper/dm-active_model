@@ -10,6 +10,7 @@ require 'active_model/lint'
 
 require 'dm-active_model'
 require 'amo_compliance_spec'
+require 'amo_validation_compliance_spec'
 
 def load_driver(name, default_uri)
   return false if ENV['ADAPTER'] != name.to_s

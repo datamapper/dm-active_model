@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Martin Gamsjaeger (snusnu)"]
-  s.date = %q{2010-02-23}
+  s.date = %q{2010-03-29}
   s.description = %q{A datamapper plugin for active_model compliance and thus rails 3 compatibility.}
   s.email = %q{gamsnjaga [a] gmail [d] com}
   s.extra_rdoc_files = [
@@ -30,6 +30,8 @@ Gem::Specification.new do |s|
      "lib/dm-active_model.rb",
      "lib/dm-active_model/version.rb",
      "spec/amo_compliance_spec.rb",
+     "spec/amo_lint_extensions.rb",
+     "spec/amo_validation_compliance_spec.rb",
      "spec/dm-active_model_spec.rb",
      "spec/rcov.opts",
      "spec/spec.opts",
@@ -48,6 +50,8 @@ Gem::Specification.new do |s|
   s.summary = %q{active_model compliance for datamapper}
   s.test_files = [
     "spec/amo_compliance_spec.rb",
+     "spec/amo_lint_extensions.rb",
+     "spec/amo_validation_compliance_spec.rb",
      "spec/dm-active_model_spec.rb",
      "spec/spec_helper.rb"
   ]

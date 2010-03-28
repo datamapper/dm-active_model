@@ -21,5 +21,6 @@ describe 'An active_model compliant DataMapper::Resource' do
   end
 
   it_should_behave_like 'an active_model compliant object'
+  it_should_behave_like 'an active_model/validations compliant object'
 
 end
