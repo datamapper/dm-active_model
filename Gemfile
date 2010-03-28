@@ -9,12 +9,12 @@
 
 source 'http://gemcutter.org'
 
-git 'git://github.com/rails/rails.git'
-gem 'activesupport', '~> 3.0.0.beta1', :require => 'active_support'
-gem 'activemodel',   '~> 3.0.0.beta1', :require => 'active_model'
+git 'git://github.com/rails/rails.git' do
+  gem 'activesupport', '~> 3.0.0.beta1', :require => 'active_support'
+  gem 'activemodel',   '~> 3.0.0.beta1', :require => 'active_model'
+end
 
-git 'git://github.com/snusnu/dm-core.git', 'branch' => 'active_support'
-gem 'dm-core', '~> 0.10'
+gem 'dm-core', '~> 0.10.2', :git => 'git://github.com/datamapper/dm-core.git'
 
 group(:test) do
   gem 'rspec',      '~> 1.3'
