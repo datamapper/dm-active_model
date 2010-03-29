@@ -14,7 +14,8 @@ git 'git://github.com/rails/rails.git' do
   gem 'activemodel',   '~> 3.0.0.beta1', :require => 'active_model'
 end
 
-gem 'dm-core', '~> 0.10.2', :git => 'git://github.com/datamapper/dm-core.git'
+gem 'dm-core',        '~> 0.10.2', :git => 'git://github.com/datamapper/dm-core.git'
+gem 'dm-validations', '~> 0.10.2', :git => 'git://github.com/datamapper/dm-more.git'
 
 group(:test) do
   gem 'rspec',      '~> 1.3'

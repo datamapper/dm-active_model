@@ -21,6 +21,14 @@ describe 'An active_model compliant DataMapper::Resource' do
   end
 
   it_should_behave_like 'an active_model compliant object'
-  it_should_behave_like 'an active_model/validations compliant object'
+
+  if ENV['AMO_VALIDATIONS'] == 'true'
+
+    require 'dm-validations'
+    require 'amo_validation_compliance_spec'
+
+    it_should_behave_like 'an active_model/validations compliant object'
+
+  end
 
 end
