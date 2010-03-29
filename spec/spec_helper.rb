@@ -8,7 +8,9 @@ lib = File.expand_path('../../../rails/activemodel/lib', __FILE__)
 $LOAD_PATH.unshift(lib) if File.directory?(lib)
 require 'active_model/lint'
 
+require 'dm-validations'
 require 'dm-active_model'
+
 require 'amo_compliance_spec'
 require 'amo_validation_compliance_spec'
 
