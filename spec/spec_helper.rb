@@ -18,7 +18,7 @@ $LOAD_PATH.unshift(lib) if File.directory?(lib)
 require 'active_model/lint'
 
 require 'dm-active_model'
-require 'amo_compliance_spec'
+require 'lib/amo_interface_compliance_spec'
 
 def load_driver(name, default_uri)
   return false if ENV['ADAPTER'] != name.to_s

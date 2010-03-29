@@ -1,12 +1,5 @@
 require 'spec/test/unit'
-require 'amo_lint_extensions'
-
-# This must be kept in sync with active_model/lint tests
-# at least for as long as
-#
-#   http://rspec.lighthouseapp.com/projects/5645/tickets/900
-#
-# isn't resolved in some way (probably with rspec2)
+require 'lib/amo_lint_extensions'
 
 share_examples_for 'an active_model/validations compliant object' do
 
