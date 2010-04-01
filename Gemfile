@@ -10,8 +10,8 @@
 source 'http://gemcutter.org'
 
 git 'git://github.com/rails/rails.git' do
-  gem 'activesupport', '~> 3.0.0.beta1', :require => 'active_support'
-  gem 'activemodel',   '~> 3.0.0.beta1', :require => 'active_model'
+  gem 'activesupport', '~> 3.0.0.beta2', :require => 'active_support'
+  gem 'activemodel',   '~> 3.0.0.beta2', :require => 'active_model'
 end
 
 gem 'dm-core',        '~> 0.10.2', :git => 'git://github.com/datamapper/dm-core.git'
