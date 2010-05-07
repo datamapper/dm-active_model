@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Martin Gamsjaeger (snusnu)"]
-  s.date = %q{2010-04-01}
+  s.date = %q{2010-05-07}
   s.description = %q{A datamapper plugin for active_model compliance and thus rails 3 compatibility.}
   s.email = %q{gamsnjaga [a] gmail [d] com}
   s.extra_rdoc_files = [
@@ -29,31 +29,30 @@ Gem::Specification.new do |s|
      "dm-active_model.gemspec",
      "lib/dm-active_model.rb",
      "lib/dm-active_model/version.rb",
+     "spec/amo_interface_compliance_spec.rb",
+     "spec/amo_validation_compliance_spec.rb",
      "spec/dm-active_model_spec.rb",
-     "spec/lib/amo_interface_compliance_spec.rb",
      "spec/lib/amo_lint_extensions.rb",
-     "spec/lib/amo_validation_compliance_spec.rb",
      "spec/rcov.opts",
      "spec/spec.opts",
-     "spec/spec_helper.rb",
      "tasks/changelog.rake",
      "tasks/ci.rake",
+     "tasks/local_gemfile.rake",
      "tasks/metrics.rake",
      "tasks/spec.rake",
      "tasks/yard.rake",
      "tasks/yardstick.rake"
   ]
-  s.homepage = %q{http://github.com/snusnu/dm-active_model}
+  s.homepage = %q{http://github.com/datamapper/dm-active_model}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{active_model compliance for datamapper}
   s.test_files = [
-    "spec/dm-active_model_spec.rb",
-     "spec/lib/amo_interface_compliance_spec.rb",
-     "spec/lib/amo_lint_extensions.rb",
-     "spec/lib/amo_validation_compliance_spec.rb",
-     "spec/spec_helper.rb"
+    "spec/amo_interface_compliance_spec.rb",
+     "spec/amo_validation_compliance_spec.rb",
+     "spec/dm-active_model_spec.rb",
+     "spec/lib/amo_lint_extensions.rb"
   ]
 
   if s.respond_to? :specification_version then
@@ -61,17 +60,23 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<dm-core>, ["~> 0.10"])
-      s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
+      s.add_runtime_dependency(%q<dm-core>, ["~> 0.10.2"])
+      s.add_runtime_dependency(%q<activemodel>, ["~> 3.0.0.beta3"])
+      s.add_development_dependency(%q<dm-validations>, ["~> 0.10.2"])
+      s.add_development_dependency(%q<rspec>, ["~> 1.3"])
       s.add_development_dependency(%q<yard>, ["~> 0.5"])
     else
-      s.add_dependency(%q<dm-core>, ["~> 0.10"])
-      s.add_dependency(%q<rspec>, [">= 1.2.9"])
+      s.add_dependency(%q<dm-core>, ["~> 0.10.2"])
+      s.add_dependency(%q<activemodel>, ["~> 3.0.0.beta3"])
+      s.add_dependency(%q<dm-validations>, ["~> 0.10.2"])
+      s.add_dependency(%q<rspec>, ["~> 1.3"])
       s.add_dependency(%q<yard>, ["~> 0.5"])
     end
   else
-    s.add_dependency(%q<dm-core>, ["~> 0.10"])
-    s.add_dependency(%q<rspec>, [">= 1.2.9"])
+    s.add_dependency(%q<dm-core>, ["~> 0.10.2"])
+    s.add_dependency(%q<activemodel>, ["~> 3.0.0.beta3"])
+    s.add_dependency(%q<dm-validations>, ["~> 0.10.2"])
+    s.add_dependency(%q<rspec>, ["~> 1.3"])
     s.add_dependency(%q<yard>, ["~> 0.5"])
   end
 end
