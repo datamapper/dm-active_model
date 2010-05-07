@@ -1,4 +1,5 @@
 require 'spec/test/unit'
+require 'active_model/lint'
 
 # This must be kept in sync with active_model/lint tests
 # at least for as long as

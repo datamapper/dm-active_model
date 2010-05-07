@@ -1,4 +1,12 @@
-require 'spec_helper'
+require 'dm-core'
+require 'dm-active_model'
+
+require 'amo_interface_compliance_spec'
+
+if ENV['DM_VALIDATIONS'] || ENV['AMO_VALIDATIONS']
+  require 'dm-validations'
+  require 'amo_validation_compliance_spec'
+end
 
 describe 'An active_model compliant DataMapper::Resource' do
 
@@ -11,8 +19,7 @@ describe 'An active_model compliant DataMapper::Resource' do
       end
     end
 
-    DataMapper.setup(:default, 'sqlite3::memory:')
-    DataMapper.auto_migrate!
+    DataMapper.setup(:default, { :adapter => :in_memory })
 
   end
 
@@ -23,12 +30,7 @@ describe 'An active_model compliant DataMapper::Resource' do
   it_should_behave_like 'an active_model compliant object'
 
   if ENV['AMO_VALIDATIONS'] == 'true'
-
-    require 'dm-validations'
-    require 'lib/amo_validation_compliance_spec'
-
     it_should_behave_like 'an active_model/validations compliant object'
-
   end
 
 end
