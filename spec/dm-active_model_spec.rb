@@ -12,7 +12,7 @@ describe 'An active_model compliant DataMapper::Resource' do
 
   before :all do
 
-    module ComplianceTest
+    module ::ComplianceTest
       class ProfileInfo
         include DataMapper::Resource
         property :id, Serial
