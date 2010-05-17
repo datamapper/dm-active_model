@@ -23,7 +23,7 @@ begin
 
     gem.add_development_dependency 'dm-validations', '~> 0.10.2'
     gem.add_development_dependency 'rspec',          '~> 1.3'
-    gem.add_development_dependency 'yard',           '~> 0.5'
+    gem.add_development_dependency 'test-unit',      '= 1.2.3'
 
   end
 
