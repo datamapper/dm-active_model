@@ -18,10 +18,10 @@ begin
     gem.homepage    = 'http://github.com/datamapper/dm-active_model'
     gem.authors     = [ 'Martin Gamsjaeger (snusnu)' ]
 
-    gem.add_dependency 'dm-core',                    '~> 0.10.2'
+    gem.add_dependency 'dm-core',                    '~> 1.0.0.rc1'
     gem.add_dependency 'activemodel',                '~> 3.0.0.beta3'
 
-    gem.add_development_dependency 'dm-validations', '~> 0.10.2'
+    gem.add_development_dependency 'dm-validations', '~> 1.0.0.rc1'
     gem.add_development_dependency 'rspec',          '~> 1.3'
     gem.add_development_dependency 'test-unit',      '= 1.2.3'
 

@@ -71,12 +71,11 @@
 source 'http://rubygems.org'
 
 DATAMAPPER = 'git://github.com/datamapper'
-DM_VERSION = '~> 0.10.3'
-
+DM_VERSION = '~> 1.0.0.rc1'
 
 group :runtime do # Runtime dependencies (as in the gemspec)
 
-  gem 'dm-core',       '~> 0.10.3',      :git => "#{DATAMAPPER}/dm-core.git"
+  gem 'dm-core',       DM_VERSION,       :git => "#{DATAMAPPER}/dm-core.git"
   gem 'activesupport', '~> 3.0.0.beta3', :git => 'git://github.com/rails/rails.git', :require => nil
   gem 'activemodel',   '~> 3.0.0.beta3', :git => 'git://github.com/rails/rails.git', :require => nil
 
@@ -114,4 +113,3 @@ group :datamapper do # We need this because we want to pin these dependencies to
   end
 
 end
-
