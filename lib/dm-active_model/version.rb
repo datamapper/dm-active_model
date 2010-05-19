@@ -1,7 +1,7 @@
 module DataMapper
   module ActiveModel
 
-    VERSION = '0.4.0'.freeze
+    VERSION = '1.0.0.rc1'.freeze
 
   end
 end

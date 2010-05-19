@@ -1,15 +1,11 @@
 require 'rubygems'
-
 require 'rake'
-require File.expand_path('../lib/dm-active_model/version', __FILE__)
 
 begin
 
   require 'jeweler'
 
   Jeweler::Tasks.new do |gem|
-
-    gem.version     = DataMapper::ActiveModel::VERSION
 
     gem.name        = 'dm-active_model'
     gem.summary     = 'active_model compliance for datamapper'
