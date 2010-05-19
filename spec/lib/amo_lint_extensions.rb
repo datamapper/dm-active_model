@@ -17,7 +17,7 @@ module ActiveModel
           validates_numericality_of
           validates_presence_of
         ]
-        
+
         VALIDATION_METHODS.each do |validation_method|
           define_method "test_#{validation_method}" do
             assert model.class.respond_to?(validation_method)
