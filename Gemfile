@@ -106,7 +106,7 @@ end
 group :datamapper do # We need this because we want to pin these dependencies to their git master sources
 
   plugins = ENV['PLUGINS'] || ENV['PLUGIN']
-  plugins = (plugins.to_s.gsub(',',' ').split(' ')).uniq
+  plugins = plugins.to_s.tr(',', ' ').split.uniq
 
   plugins.each do |plugin|
     gem plugin, DM_VERSION, :git => "#{DATAMAPPER}/#{plugin}.git"
