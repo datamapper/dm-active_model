@@ -75,9 +75,9 @@ DM_VERSION = '~> 1.0.0'
 
 group :runtime do # Runtime dependencies (as in the gemspec)
 
-  gem 'dm-core',       DM_VERSION,       :git => "#{DATAMAPPER}/dm-core.git"
-  gem 'activesupport', '~> 3.0.0.rc2',   :git => 'git://github.com/rails/rails.git', :branch => '3-0-stable', :require => nil
-  gem 'activemodel',   '~> 3.0.0.beta3', :git => 'git://github.com/rails/rails.git', :require => nil
+  gem 'dm-core',       DM_VERSION, :git => "#{DATAMAPPER}/dm-core.git"
+  gem 'activesupport', '~> 3.0.0', :git => 'git://github.com/rails/rails.git', :branch => '3-0-stable', :require => nil
+  gem 'activemodel',   '~> 3.0.0', :git => 'git://github.com/rails/rails.git', :branch => '3-0-stable', :require => nil
 
 end
 
