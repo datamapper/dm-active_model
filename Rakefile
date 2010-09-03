@@ -15,10 +15,10 @@ begin
 
     gem.rubyforge_project = 'datamapper'
 
-    gem.add_dependency 'dm-core',     '~> 1.0.0'
+    gem.add_dependency 'dm-core',     '~> 1.0.1'
     gem.add_dependency 'activemodel', '~> 3.0.0'
 
-    gem.add_development_dependency 'dm-validations', '~> 1.0.0'
+    gem.add_development_dependency 'dm-validations', '~> 1.0.1'
     gem.add_development_dependency 'rspec',          '~> 1.3'
     gem.add_development_dependency 'test-unit',      '= 1.2.3'
   end
