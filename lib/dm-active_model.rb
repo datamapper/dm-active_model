@@ -3,16 +3,6 @@ require 'active_model/naming'
 module DataMapper
   module ActiveModel
 
-    module ClassMethods
-
-      # Returns an ActiveModel::Name object for module. It can be
-      # used to retrieve all kinds of naming-related information.
-      def model_name
-        @_model_name ||= ::ActiveModel::Name.new(self)
-      end
-
-    end
-
     module InstanceMethods
 
       def to_model
@@ -58,7 +48,7 @@ module DataMapper
 
   end
 
-  Model.append_extensions(ActiveModel::ClassMethods)
+  Model.append_extensions(::ActiveModel::Naming)
   Model.append_inclusions(ActiveModel::InstanceMethods)
 
 end
