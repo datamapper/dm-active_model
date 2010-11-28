@@ -10,8 +10,8 @@ DM_VERSION = '~> 1.0.2'
 group :runtime do # Runtime dependencies (as in the gemspec)
 
   gem 'dm-core',       DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}"
-  gem 'activesupport', '~> 3.0', :git => 'git://github.com/rails/rails.git', :require => nil
-  gem 'activemodel',   '~> 3.0', :git => 'git://github.com/rails/rails.git', :require => nil
+  gem 'activesupport', :git => 'git://github.com/rails/rails.git', :require => nil
+  gem 'activemodel',   :git => 'git://github.com/rails/rails.git', :require => nil
 
 end
 
