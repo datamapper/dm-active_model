@@ -1,3 +1,4 @@
+require 'dm-core'
 require 'active_model/naming'
 
 module DataMapper
