@@ -10,6 +10,7 @@ DM_VERSION = '~> 1.0.2'
 group :runtime do # Runtime dependencies (as in the gemspec)
 
   gem 'dm-core',       DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}"
+  gem 'i18n',          '~> 0.5.0'
   gem 'activesupport', '~> 3.0.4', :require => nil
   gem 'activemodel',   '~> 3.0.4', :require => nil
 
