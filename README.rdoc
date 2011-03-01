@@ -15,4 +15,4 @@ This plugin makes datamapper compliant with active_model conventions and thus co
 
 == Copyright
 
-Copyright (c) 2010 Martin Gamsjaeger (snusnu). See LICENSE for details.
+Copyright (c) 2011 Martin Gamsjaeger (snusnu). See LICENSE for details.
