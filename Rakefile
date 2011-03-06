@@ -14,6 +14,8 @@ begin
     gem.authors     = [ 'Martin Gamsjaeger (snusnu)' ]
     gem.has_rdoc    = 'yard'
 
+    gem.required_rubygems_version = '~> 1.4'
+
     gem.rubyforge_project = 'datamapper'
   end
 
