@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dm-active_model}
-  s.version = "1.1.0.rc2"
+  s.version = "1.1.0.rc3"
 
   s.required_rubygems_version = Gem::Requirement.new("~> 1.4") if s.respond_to? :required_rubygems_version=
   s.authors = ["Martin Gamsjaeger (snusnu)"]
