@@ -7,8 +7,8 @@ REPO_POSTFIX = SOURCE == :path ? ''                                : '.git'
 DATAMAPPER   = SOURCE == :path ? Pathname(__FILE__).dirname.parent : 'http://github.com/datamapper'
 DM_VERSION   = '~> 1.1.0'
 
-gem 'activemodel', '>= 3.0.4', '< 3.2', :require => nil
 gem 'dm-core',     DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}"
+gem 'activemodel', '~> 3.1.0', :require => nil
 
 group :development do
 
