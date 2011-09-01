@@ -2,20 +2,21 @@ require 'pathname'
 
 source 'http://rubygems.org'
 
-SOURCE       = ENV.fetch('SOURCE', :git).to_sym
-REPO_POSTFIX = SOURCE == :path ? ''                                : '.git'
-DATAMAPPER   = SOURCE == :path ? Pathname(__FILE__).dirname.parent : 'http://github.com/datamapper'
-DM_VERSION   = '~> 1.1.0'
+SOURCE        = ENV.fetch('SOURCE', :git).to_sym
+REPO_POSTFIX  = SOURCE == :path ? ''                                : '.git'
+DATAMAPPER    = SOURCE == :path ? Pathname(__FILE__).dirname.parent : 'http://github.com/datamapper'
+DM_VERSION    = '~> 1.1.0'
+RAILS_VERSION = '~> 3.1.0'
 
 gem 'dm-core',     DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}"
-gem 'activemodel', '~> 3.1.0', :require => nil
+gem 'activemodel', RAILS_VERSION, :require => nil
 
 group :development do
 
   gem 'dm-validations', DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-validations#{REPO_POSTFIX}"
-  gem 'jeweler',        '~> 1.5.2'
-  gem 'rake',           '~> 0.8.7'
-  gem 'rspec',          '~> 1.3.1'
+  gem 'jeweler',        '~> 1.6.4'
+  gem 'rake',           '~> 0.9.2'
+  gem 'rspec',          '~> 1.3.2'
   gem 'test-unit',      '= 1.2.3'
 
 end
@@ -23,9 +24,9 @@ end
 platforms :mri_18 do
   group :quality do
 
-    gem 'rcov',      '~> 0.9.9'
-    gem 'yard',      '~> 0.6'
-    gem 'yardstick', '~> 0.2'
+    gem 'rcov',      '~> 0.9.10'
+    gem 'yard',      '~> 0.7.2'
+    gem 'yardstick', '~> 0.4'
 
   end
 end
