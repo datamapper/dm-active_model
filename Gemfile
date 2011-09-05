@@ -5,7 +5,7 @@ source 'http://rubygems.org'
 SOURCE        = ENV.fetch('SOURCE', :git).to_sym
 REPO_POSTFIX  = SOURCE == :path ? ''                                : '.git'
 DATAMAPPER    = SOURCE == :path ? Pathname(__FILE__).dirname.parent : 'http://github.com/datamapper'
-DM_VERSION    = '~> 1.1.0'
+DM_VERSION    = '~> 1.2.0.rc1'
 RAILS_VERSION = '~> 3.1.0'
 
 gem 'dm-core',     DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}"
