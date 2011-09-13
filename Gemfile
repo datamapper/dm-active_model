@@ -2,18 +2,25 @@ require 'pathname'
 
 source 'http://rubygems.org'
 
-SOURCE        = ENV.fetch('SOURCE', :git).to_sym
-REPO_POSTFIX  = SOURCE == :path ? ''                                : '.git'
-DATAMAPPER    = SOURCE == :path ? Pathname(__FILE__).dirname.parent : 'http://github.com/datamapper'
-DM_VERSION    = '~> 1.2.0.rc1'
-RAILS_VERSION = '~> 3.1.0'
+SOURCE         = ENV.fetch('SOURCE', :git).to_sym
+REPO_POSTFIX   = SOURCE == :path ? ''                                : '.git'
+DATAMAPPER     = SOURCE == :path ? Pathname(__FILE__).dirname.parent : 'http://github.com/datamapper'
+DM_VERSION     = '~> 1.2.0.rc1'
+CURRENT_BRANCH = ENV.fetch('GIT_BRANCH', 'master')
+RAILS_VERSION  = '~> 3.1.0'
 
-gem 'dm-core',     DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}"
+gem 'dm-core',     DM_VERSION,
+  SOURCE  => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}",
+  :branch => CURRENT_BRANCH
+
 gem 'activemodel', RAILS_VERSION, :require => nil
 
 group :development do
 
-  gem 'dm-validations', DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-validations#{REPO_POSTFIX}"
+  gem 'dm-validations', DM_VERSION,
+    SOURCE  => "#{DATAMAPPER}/dm-validations#{REPO_POSTFIX}",
+    :branch => CURRENT_BRANCH
+
   gem 'jeweler',        '~> 1.6.4'
   gem 'rake',           '~> 0.9.2'
   gem 'rspec',          '~> 1.3.2'
@@ -37,7 +44,9 @@ group :datamapper do
   plugins = plugins.to_s.tr(',', ' ').split.uniq
 
   plugins.each do |plugin|
-    gem plugin, DM_VERSION, SOURCE => "#{DATAMAPPER}/#{plugin}#{REPO_POSTFIX}"
+    gem plugin, DM_VERSION,
+      SOURCE  => "#{DATAMAPPER}/#{plugin}#{REPO_POSTFIX}",
+      :branch => CURRENT_BRANCH
   end
 
 end
