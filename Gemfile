@@ -9,7 +9,7 @@ REPO_POSTFIX   = SOURCE == :path ? ''                                : '.git'
 DATAMAPPER     = SOURCE == :path ? Pathname(__FILE__).dirname.parent : 'http://github.com/datamapper'
 DM_VERSION     = '~> 1.3.0.beta'
 CURRENT_BRANCH = ENV.fetch('GIT_BRANCH', 'master')
-RAILS_VERSION  = '~> 3.1.0'
+RAILS_VERSION  = '~> 3.0'
 
 gem 'dm-core',     DM_VERSION,
   SOURCE  => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}",
