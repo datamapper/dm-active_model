@@ -1,10 +1,14 @@
 require 'dm-core'
+require 'active_support/core_ext/module/delegation'  # needed by active_model/naming
+require 'active_support/concern'                     # needed by active_model/conversion
 require 'active_model/naming'
+require 'active_model/conversion'
 
 module DataMapper
   module ActiveModel
 
     module InstanceMethods
+      include ::ActiveModel::Conversion
 
       def to_model
         self
@@ -50,6 +54,7 @@ module DataMapper
   end
 
   Model.append_extensions(::ActiveModel::Naming)
+  Model.append_extensions(::ActiveModel::Conversion::ClassMethods)
   Model.append_inclusions(ActiveModel::InstanceMethods)
 
 end

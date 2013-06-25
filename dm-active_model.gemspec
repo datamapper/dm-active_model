@@ -16,11 +16,10 @@ Gem::Specification.new do |gem|
   gem.require_paths = [ "lib" ]
   gem.version       = DataMapper::ActiveModel::VERSION
 
-  gem.add_runtime_dependency('dm-core',     '~> 1.3.0.beta')
-  gem.add_runtime_dependency('activemodel', '~> 3.0')
+  gem.add_runtime_dependency('dm-core',     '~> 1.2', '>= 1.2.0')
+  gem.add_runtime_dependency('activemodel', '>= 3.0', '< 5.0')
 
   gem.add_development_dependency('rake',      '~> 0.9.2')
   gem.add_development_dependency('rspec',     '~> 1.3.2')
   gem.add_development_dependency('test-unit', '= 1.2.3')
 end
-

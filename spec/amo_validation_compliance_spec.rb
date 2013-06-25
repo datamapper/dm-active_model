@@ -10,5 +10,4 @@ share_examples_for 'an active_model/validations compliant object' do
       send("test_#{validation_method}")
     end
   end
-
 end
