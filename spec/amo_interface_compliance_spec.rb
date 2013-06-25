@@ -1,4 +1,5 @@
 require 'spec/test/unit'
+require 'active_support/core_ext/object/blank'  # needed by active_model/lint
 require 'active_model/lint'
 require 'active_support/core_ext/string'
 
@@ -21,21 +22,24 @@ share_examples_for 'an active_model compliant object' do
     test_to_param
   end
 
+  it 'must implement the #to_partial_path interface' do
+    test_to_partial_path if respond_to?(:test_to_partial_path)
+  end
+
   it 'must implement the #valid? interface' do
-    test_valid?
+    test_valid? if respond_to?(:test_valid?)
   end
 
   it 'must implement the #persisted? interface' do
     test_persisted?
   end
 
-  it 'must implement the #model_naming interface' do
+  it 'must implement the .model_name interface' do
     test_model_naming
   end
 
   it 'must implement the #errors interface' do
     test_errors_aref
-    test_errors_full_messages
+    test_errors_full_messages if respond_to?(:test_errors_full_messages)
   end
-
 end
