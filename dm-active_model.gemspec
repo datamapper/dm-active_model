@@ -7,6 +7,7 @@ Gem::Specification.new do |gem|
   gem.summary     = "active_model compliance for datamapper"
   gem.description = 'A datamapper plugin for active_model compliance and thus rails 3 compatibility.'
   gem.homepage    = "http://datamapper.org"
+  gem.license     = 'MIT'
 
   gem.files            = `git ls-files`.split("\n")
   gem.test_files       = `git ls-files -- {spec}/*`.split("\n")
@@ -19,7 +20,8 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency('dm-core',     '~> 1.2', '>= 1.2.0')
   gem.add_runtime_dependency('activemodel', '>= 3.0', '< 5.0')
 
-  gem.add_development_dependency('rake',      '~> 0.9.2')
-  gem.add_development_dependency('rspec',     '~> 1.3.2')
+  gem.add_development_dependency('dm-validations', '~> 1.2')
+  gem.add_development_dependency('rake',      '~> 0.9')
+  gem.add_development_dependency('rspec',     '~> 1.3')
   gem.add_development_dependency('test-unit', '= 1.2.3')
 end
