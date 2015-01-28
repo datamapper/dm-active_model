@@ -14,32 +14,9 @@ share_examples_for 'an active_model compliant object' do
 
   include ActiveModel::Lint::Tests
 
-  it 'must implement the #to_key interface' do
-    test_to_key
-  end
-
-  it 'must implement the #to_param interface' do
-    test_to_param
-  end
-
-  it 'must implement the #to_partial_path interface' do
-    test_to_partial_path if respond_to?(:test_to_partial_path)
-  end
-
-  it 'must implement the #valid? interface' do
-    test_valid? if respond_to?(:test_valid?)
-  end
-
-  it 'must implement the #persisted? interface' do
-    test_persisted?
-  end
-
-  it 'must implement the .model_name interface' do
-    test_model_naming
-  end
-
-  it 'must implement the #errors interface' do
-    test_errors_aref
-    test_errors_full_messages if respond_to?(:test_errors_full_messages)
+  instance_methods.grep(/^test_/).each do |meth|
+    it meth.to_s do
+      send(meth)
+    end
   end
 end
