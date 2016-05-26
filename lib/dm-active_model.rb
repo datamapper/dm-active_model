@@ -1,5 +1,6 @@
 require 'dm-core'
 require 'active_support/core_ext/module/delegation'  # needed by active_model/naming
+require 'active_support/core_ext/module/remove_method' # needed for Module.remove_possible_method in active_model/naming.rb (active_model ~> 4.1)
 require 'active_support/concern'                     # needed by active_model/conversion
 require 'active_model/naming'
 require 'active_model/conversion'
