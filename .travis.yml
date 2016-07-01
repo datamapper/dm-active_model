@@ -1,26 +1,6 @@
 script: "bundle exec rake spec"
 rvm:
-  - 2.0.0
   - 2.2.2
-  - ruby-head
-  - jruby-19mode
-  - jruby-head
-  - rbx-19mode
-env:
-  - "GIT_BRANCH=master"
-notifications:
-  irc:
-    channels:
-      - irc.freenode.org#datamapper
-    on_success: never
-    on_failure: change
-  email:
-    recipients:
-      - dan.kubb@gmail.com
-    on_success: never
-    on_failure: change
-matrix:
-  allow_failures:
-    - rvm: ruby-head
+  - 2.3.0
 before_install:
   - gem install bundler
