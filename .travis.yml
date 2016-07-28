@@ -1,0 +1,6 @@
+script: "bundle exec rake spec"
+rvm:
+  - 2.2.2
+  - 2.3.0
+before_install:
+  - gem install bundler
